@@ -1,0 +1,25 @@
+#+TITLE: Study Plan
+#+AUTHOR: Michael Rose
+
+* Daily <2019-11-16 Sat>
+
+* Current Projects
+** IN-PROG Math 55a
+*** IN-PROG Naive Set Theory 
+**** IN-PROG Chapter 10
+*** Linear Algebra Done Right
+*** Artin Algebra
+** Computing
+*** IN-PROG Get Org Mode running well
+*** Docker tutorial
+*** Linux Command Line
+*** plumber
+** Statistics
+*** IN-PROG Linear Models with R
+**** IN-PROG Chapter 6
+***** Currently on Exercise 2
+
+*** IN-PROG Elements of Statistical Learning
+**** IN-PROG Chapter 2 <2019-11-22 Fri>
+**** Chapter 3 <2019-11-22 Fri>
+* Long Term

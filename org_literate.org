@@ -1,0 +1,45 @@
+* Literate Programming in Emacs
+
+This is some example text.
+
+** Let's Create Some Data
+
+ #+BEGIN_SRC R :session rs :results value :colnames yes :hline yes
+ library(tidyverse)
+ library(magrittr)
+ set.seed(8888)
+
+ x <- 1:10
+ x <- x * x
+ y <- runif(n = 10)
+ z <- rcauchy(n = 10, location = 0, scale = 1)
+
+ (tib <- tibble(x, y, z))
+ #+END_SRC
+
+ #+RESULTS:
+ |   x |                  y |                  z |
+ |-----+--------------------+--------------------|
+ |   1 |  0.577597888186574 |  0.934894169345462 |
+ |   4 |  0.458838287973776 |  0.772353195743305 |
+ |   9 |  0.835470735561103 |  0.622683779667394 |
+ |  16 |  0.415510534541681 | -0.422116945565272 |
+ |  25 |  0.485289995791391 | -0.233791172959515 |
+ |  36 |  0.659189179074019 |  0.139026547224576 |
+ |  49 |  0.490282482467592 |   5.04083072628151 |
+ |  64 | 0.0986318502109498 |   2.70487913744592 |
+ |  81 |  0.508820567978546 |   1.70357340382615 |
+ | 100 |  0.168141811853275 | -0.989272448223409 |
+
+Great! 
+
+** Let's Plot It
+
+ #+BEGIN_SRC R :session rs :results output graphics :file plot.png
+ tib %>% 
+  ggplot(aes(x = x, y = z)) + 
+  geom_point()
+ #+END_SRC
+
+ #+RESULTS:
+ [[file:plot.png]]
