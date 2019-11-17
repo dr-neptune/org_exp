@@ -1,9 +1,7 @@
-* Literate Programming in Emacs
+* Literate Programming in Emacs  
   :PROPERTIES:
-  :header-args: :session rs
+  :header-args: :session rs :exports both
   :END:
-  
-#+PROPERTY: session: rs
 
 This is some example text.
 
