@@ -1,45 +1,74 @@
 * Literate Programming in Emacs
+  :PROPERTIES:
+  :header-args: :session rs
+  :END:
+  
+#+PROPERTY: session: rs
 
 This is some example text.
 
 ** Let's Create Some Data
 
- #+BEGIN_SRC R :session rs :results value :colnames yes :hline yes
+#+BEGIN_SRC R
+q <- 1:5
+#+END_SRC
+
+#+RESULTS:
+| 1 |
+| 2 |
+| 3 |
+| 4 |
+| 5 |
+
+#+BEGIN_SRC R
+p * p * q
+#+END_SRC
+
+#+RESULTS:
+|   1 |
+|   8 |
+|  27 |
+|  64 |
+| 125 |
+
+
+ #+BEGIN_SRC R :results value :colnames yes :hline yes
  library(tidyverse)
  library(magrittr)
- set.seed(8888)
-
+ set.seed(8889)
+ 
  x <- 1:10
- x <- x * x
- y <- runif(n = 10)
+ x <- x * x * x
+ y <- runif(n = 10, max = 0.5)
  z <- rcauchy(n = 10, location = 0, scale = 1)
-
+ 
  (tib <- tibble(x, y, z))
  #+END_SRC
 
  #+RESULTS:
- |   x |                  y |                  z |
- |-----+--------------------+--------------------|
- |   1 |  0.577597888186574 |  0.934894169345462 |
- |   4 |  0.458838287973776 |  0.772353195743305 |
- |   9 |  0.835470735561103 |  0.622683779667394 |
- |  16 |  0.415510534541681 | -0.422116945565272 |
- |  25 |  0.485289995791391 | -0.233791172959515 |
- |  36 |  0.659189179074019 |  0.139026547224576 |
- |  49 |  0.490282482467592 |   5.04083072628151 |
- |  64 | 0.0986318502109498 |   2.70487913744592 |
- |  81 |  0.508820567978546 |   1.70357340382615 |
- | 100 |  0.168141811853275 | -0.989272448223409 |
+ |    x |                  y |                   z |
+ |------+--------------------+---------------------|
+ |    1 |  0.465599656570703 |   0.560694659129994 |
+ |    8 |   0.23785458644852 |   -10.4246021825232 |
+ |   27 | 0.0391679611057043 |   0.375323592097244 |
+ |   64 | 0.0864758527604863 |    1.19660199930361 |
+ |  125 |  0.159671154804528 |   0.969514565508067 |
+ |  216 |  0.132397986715659 |   -7.44819446950146 |
+ |  343 |  0.174539371975698 |  -0.568575031743534 |
+ |  512 |  0.111639552051201 | -0.0653331645143704 |
+ |  729 |  0.122059271321632 |    0.70896161068911 |
+ | 1000 |  0.405867569847032 |    1.35888307170302 |
 
 Great! 
 
 ** Let's Plot It
 
- #+BEGIN_SRC R :session rs :results output graphics :file plot.png
- tib %>% 
-  ggplot(aes(x = x, y = z)) + 
-  geom_point()
+ #+BEGIN_SRC R :results output graphics :file plot.svg
+ tib %>% ggplot(aes(x = x, y = z)) + geom_point()
  #+END_SRC
 
  #+RESULTS:
- [[file:plot.png]]
+ [[file:plot.svg]]
+
+ #+HTML:
+ [[file:plot.svg]]
