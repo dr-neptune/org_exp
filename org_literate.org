@@ -1,6 +1,6 @@
 * Literate Programming in Emacs  
   :PROPERTIES:
-  :header-args: :session rs :exports both
+  :header-args: :session rs :results output
   :END:
 
 This is some example text.
